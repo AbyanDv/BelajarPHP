@@ -12,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Status: Menunggu Data..."
-        android:textSize="18sp"
+        android:textSize="30px"
         android:padding="16dp"
+        android:fontFamily="@font/poppins_regular"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Minta Akses Penggunaan"
+        android:textSize="35px"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintTop_toBottomOf="@id/tvResult"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,9 +37,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kirim Data Screen Time"
+        android:textSize="35px"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintTop_toBottomOf="@id/btnRequestPermission"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App created by Siscer VI"
+        android:fontFamily="@font/poppins_medium_italic"
+        android:padding="16dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

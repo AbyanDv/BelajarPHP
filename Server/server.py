@@ -76,7 +76,8 @@ def receive_usage():
     now = datetime.now().isoformat()
     formatted_total = format_hms(total_sec_all)
     total_hours = total_sec_all / 3600
-    level = fuzzy_logic.fuzzy_level(total_hours)
+    level, message = fuzzy_logic.fuzzy_level(total_hours)
+
 
     print(f"\n[{now}] === Android Usage Data ===")
     print(f"Total Screen Time: {formatted_total} → Level: {level}")
@@ -93,12 +94,14 @@ def receive_usage():
             writer.writerow([now, app_name, pkg, formatted, formatted_total, level])
 
     return jsonify({
-        "status": "ok",
-        "source": "android",
-        "total_apps": len(usage_list),
-        "total_usage": formatted_total,
-        "usage_level": level
+    "status": "ok",
+    "source": "android",
+    "message": message,
+    "total_apps": len(usage_list),
+    "total_usage": formatted_total,
+    "usage_level": level
     }), 200
+
 
 # =======================
 # ENDPOINT: IoT (ESP32)

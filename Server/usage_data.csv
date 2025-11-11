@@ -99,3 +99,103 @@ timestamp,app_name,package,usage_time,total_screen_time,fuzzy_level
 2025-11-05T20:26:31.693090,Facebook,com.facebook.katana,0 jam 18 menit 4 detik,14 jam 30 menit 46 detik,High
 2025-11-05T20:26:31.693090,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,0 jam 17 menit 29 detik,14 jam 30 menit 46 detik,High
 2025-11-05T20:26:31.693090,Gallery,com.miui.gallery,0 jam 9 menit 49 detik,14 jam 30 menit 46 detik,High
+2025-11-10T22:45:12.595067,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,System launcher,com.miui.home,0 jam 28 menit 26 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,com.android.settings,com.android.settings,0 jam 9 menit 44 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:45:12.595067,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 8 menit 3 detik,14 jam 7 menit 8 detik,High
+2025-11-10T22:48:49.154167,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,System launcher,com.miui.home,0 jam 28 menit 26 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,com.android.settings,com.android.settings,0 jam 9 menit 44 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 9 menit 37 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:48:49.154167,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 8 menit 42 detik,High
+2025-11-10T22:53:03.128259,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 14 menit 47 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,com.android.settings,com.android.settings,0 jam 9 menit 44 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:03.128259,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 14 menit 47 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,com.android.settings,com.android.settings,0 jam 9 menit 44 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:04.193173,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 14 menit 47 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,com.android.settings,com.android.settings,0 jam 9 menit 44 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:05.881142,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 14 menit 48 detik,High
+2025-11-10T22:53:08.626165,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 15 menit 7 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,com.android.settings,com.android.settings,0 jam 9 menit 45 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:08.626165,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 15 menit 7 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,com.android.settings,com.android.settings,0 jam 9 menit 45 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.059524,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 15 menit 7 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,com.android.settings,com.android.settings,0 jam 9 menit 45 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.445449,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 15 menit 7 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,com.android.settings,com.android.settings,0 jam 9 menit 45 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:09.805206,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,WhatsApp,com.whatsapp,4 jam 12 menit 0 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,TikTok,com.ss.android.ugc.trill,3 jam 39 menit 39 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,YouTube,com.google.android.youtube,2 jam 39 menit 4 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,1 jam 9 menit 59 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,Chrome,com.android.chrome,0 jam 46 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,Instagram,com.instagram.android,0 jam 36 menit 5 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,System launcher,com.miui.home,0 jam 29 menit 22 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,com.example.screentimemonitoring,com.example.screentimemonitoring,0 jam 15 menit 7 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,com.android.settings,com.android.settings,0 jam 9 menit 45 detik,14 jam 15 menit 9 detik,High
+2025-11-10T22:53:10.162930,com.google.android.apps.maps,com.google.android.apps.maps,0 jam 8 menit 9 detik,14 jam 15 menit 9 detik,High

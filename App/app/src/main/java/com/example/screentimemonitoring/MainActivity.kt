@@ -70,12 +70,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestUsageAccess() {
         startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
+        startActivity(intent)
+
     }
-
-    // Fungsi ini kini hanya untuk menampilkan data di UI, bukan untuk tugas berkala.
+    private fun showPopupMessage(message: String) {
+        runOnUiThread {
+            val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+            builder.setTitle("Peringatan Penggunaan Layar")
+            builder.setMessage(message)
+            builder.setPositiveButton("OK", null)
+            val dialog = builder.create()
+            dialog.show()
+        }
+    }
     private fun showUsageStats() {
-        // Isi fungsi ini sama seperti sebelumnya, tetapi HAPUS panggilan sendDataToServer(..)
-
+        // --- 1. PENGAMBILAN DATA ---
         val usageStatsManager = getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
         val endTime = System.currentTimeMillis()
         val startTime = endTime - 1000 * 60 * 60 * 24 // 24 jam terakhir
@@ -91,7 +101,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // Gabungkan duplicate package (Logika tetap sama)
+        // --- 2. PEMROSESAN DATA (Membuat Map) ---
         val usageMap = mutableMapOf<String, Long>()
         var totalScreenTimeSeconds: Long = 0
         for (usage in usageStatsList) {
@@ -102,10 +112,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Siapkan StringBuilder (Logika tetap sama)
-        val sb = StringBuilder()
-        sb.append("=== Top 10 Penggunaan 24 Jam Terakhir ===\n\n")
-
+        // --- 3. MEMBUAT JSON ARRAY UNTUK DIKIRIM ---
+        val jsonArray = JSONArray()
         val pm = packageManager
         val top10 = usageMap.entries.sortedByDescending { it.value }.take(10)
 
@@ -116,17 +124,42 @@ class MainActivity : AppCompatActivity() {
                 pkg
             }
 
+            // Tambahkan ke JSON Array
+            val jsonObj = JSONObject()
+            jsonObj.put("package", pkg)
+            jsonObj.put("app_name", appName)
+            jsonObj.put("foreground_time_s", totalSec.toInt())
+            jsonArray.put(jsonObj)
+
+            // Tambahkan ke StringBuilder untuk tampilan UI (Lanjutan dari logika lama Anda)
             val jam = totalSec / 3600
             val menit = (totalSec % 3600) / 60
             val detik = totalSec % 60
+            // ... (lanjutkan membuat stringbuilder untuk UI jika diperlukan)
+        }
 
-            sb.append("$appName ($pkg) → ${jam}h ${menit}m ${detik}s\n\n")
+        // --- 4. KIRIM DATA INSTAN (PANGGILAN YANG HILANG) ---
+        sendDataInstantly(jsonArray, totalScreenTimeSeconds) // ✅ Panggilan di sini!
+
+        // --- 5. TAMPILKAN HASIL DI UI (Logika UI lama Anda) ---
+        val sb = StringBuilder()
+
+        // Saya asumsikan Anda ingin melihat hasil di UI:
+        sb.append("=== Top 10 Penggunaan 24 Jam Terakhir ===\n\n")
+        for ((pkg, totalSec) in top10) {
+            val appName = try {
+                pm.getApplicationLabel(pm.getApplicationInfo(pkg, 0)).toString()
+            } catch (e: Exception) {
+                pkg
+            }
+            val jam = totalSec / 3600
+            val menit = (totalSec % 3600) / 60
+            val detik = totalSec % 60
+            sb.append("$appName - ${jam}j ${menit}m ${detik}d\n")
         }
 
         tvResult.text = sb.toString()
-        // HAPUS: sendDataToServer(jsonArray, totalScreenTimeSeconds)
     }
-
     private fun sendDataInstantly(jsonArray: JSONArray, totalScreenTimeSeconds: Long) {
         Thread {
             try {
@@ -140,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                 val body = finalPayload.toString().toRequestBody(mediaType)
 
                 val request = Request.Builder()
-                    .url("http://192.168.1.200:5000/receive_usage")
+                    .url("http://192.168.1.101:5000/receive_usage")
                     .post(body)
                     .build()
 
@@ -149,8 +182,18 @@ class MainActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     tvResult.append("\n\n(INSTANT) Server Response: ${response.code}\n$respBody")
-                }
 
+                    try {
+                        val jsonResp = JSONObject(respBody ?: "")
+                        val message = jsonResp.optString("message", "")
+                        if (message.isNotEmpty()) {
+                            showPopupMessage(message) // ✅ tampilkan popup setelah kirim data
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        tvResult.append("\n\n(Gagal memproses respons server): ${e.message}")
+                    }
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
@@ -160,8 +203,6 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
-
-    // FUNGSI BARU: Menjadwalkan WorkManager
     private fun schedulePeriodicMonitoring() {
         val workManager = WorkManager.getInstance(applicationContext)
         val tag = "UsageMonitorTag"
