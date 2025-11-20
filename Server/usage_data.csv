@@ -239,3 +239,13 @@ timestamp,app_name,package,usage_time,total_screen_time,fuzzy_level
 2025-11-18T00:44:57.443467,com.example.screentimemonitoring,com.example.screentimemonitoring,Lainnya,0 jam 21 menit 55 detik,22 jam 6 menit 32 detik,sangat tinggi
 2025-11-18T00:44:57.443467,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,Lainnya,0 jam 15 menit 28 detik,22 jam 6 menit 32 detik,sangat tinggi
 2025-11-18T00:44:57.443467,Chrome,com.android.chrome,Browser,0 jam 15 menit 8 detik,22 jam 6 menit 32 detik,sangat tinggi
+2025-11-18T00:59:57.680683,com.mobile.legends,com.mobile.legends,Lainnya,7 jam 8 menit 53 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,TikTok,com.ss.android.ugc.trill,Sosial,4 jam 30 menit 30 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,WhatsApp,com.whatsapp,Sosial,4 jam 21 menit 59 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,YouTube,com.google.android.youtube,Hiburan,2 jam 11 menit 25 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,System launcher,com.miui.home,Sistem,1 jam 12 menit 10 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,Instagram,com.instagram.android,Sosial,0 jam 37 menit 36 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,com.android.settings,com.android.settings,Lainnya,0 jam 28 menit 35 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,com.example.screentimemonitoring,com.example.screentimemonitoring,Lainnya,0 jam 21 menit 57 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,com.google.android.googlequicksearchbox,com.google.android.googlequicksearchbox,Lainnya,0 jam 15 menit 28 detik,22 jam 15 menit 37 detik,sangat tinggi
+2025-11-18T00:59:57.680683,Chrome,com.android.chrome,Browser,0 jam 15 menit 8 detik,22 jam 15 menit 37 detik,sangat tinggi

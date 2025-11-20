@@ -49,7 +49,7 @@ def receive_usage():
     now = datetime.now().isoformat()
     formatted_total = format_hms(total_sec_all)
     total_hours = total_sec_all / 3600
-    level, message = fuzzy_logic.fuzzy_level(total_hours)
+    level, pesan = fuzzy_logic.fuzzy_level(total_hours)
 
 
     print(f"\n[{now}] === Android Usage Data ===")
@@ -71,7 +71,7 @@ def receive_usage():
     return jsonify({
     "status": "ok",
     "source": "android",
-    "message": message,
+    "message": pesan,
     "total_apps": len(usage_list),
     "total_usage": formatted_total,
     "usage_level": level

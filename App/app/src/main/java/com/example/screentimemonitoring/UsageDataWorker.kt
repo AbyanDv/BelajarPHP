@@ -139,7 +139,7 @@ class UsageDataWorker(appContext: Context, workerParams: WorkerParameters) :
         val body = finalPayload.toString().toRequestBody(mediaType)
 
         val request = Request.Builder()
-            .url("http://192.168.1.100:5000/receive_usage")
+            .url("http://LOQ-AndykaZefanyaBramantyo:5000/receive_usage")
             .post(body)
             .build()
 
