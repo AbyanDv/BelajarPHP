@@ -4,43 +4,50 @@ import android.app.usage.UsageStats
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
+import android.net.Uri
 import android.provider.Settings
+import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-// Hapus import OkHttp yang tidak perlu di sini
-import androidx.work.* // <-- WorkManager diperlukan di sini
-import org.json.JSONArray
-import org.json.JSONObject
-import java.util.concurrent.TimeUnit // Diperlukan untuk interval WorkManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.work.*
+import java.util.concurrent.TimeUnit
+import android.Manifest
+import android.content.pm.PackageManager
+import android.app.AlertDialog
+import android.widget.EditText
+import android.text.InputType
+import android.view.View
+import androidx.work.WorkInfo
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvResult: TextView
     private lateinit var btnRequestPermission: Button
     private lateinit var btnGetUsage: Button
-
-    // VARIABEL HANDLER/RUNNABLE DIHAPUS
-
+    private lateinit var btnChangeIp: Button
+    private val NOTIFICATION_PERMISSION_CODE = 101
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         tvResult = findViewById(R.id.tvResult)
         btnRequestPermission = findViewById(R.id.btnRequestPermission)
         btnGetUsage = findViewById(R.id.btnUsage)
-
+        btnChangeIp = findViewById(R.id.btnChangeIp)
+        setupChangeIpButton()
+        requestNotificationPermission()
         btnRequestPermission.setOnClickListener {
             requestUsageAccess()
         }
-
+        if (!isIgnoringBatteryOptimizations()) {
+            requestDisableBatteryOptimization()
+        }
         btnGetUsage.setOnClickListener {
             if (hasUsageAccess()) {
-                // 1. Tampilkan data sekali (untuk user melihat hasil)
                 showUsageStats()
-
-                // 2. Jadwalkan monitoring berkala WorkManager
                 schedulePeriodicMonitoring()
                 tvResult.append("\n\n✅ Monitoring Berkala (15 Menit) WorkManager Dijadwalkan!")
             } else {
@@ -48,12 +55,69 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Cek dan jadwalkan WorkManager saat aplikasi dimulai (opsional, tapi disarankan)
         if (hasUsageAccess()) {
             schedulePeriodicMonitoring()
         }
     }
 
+    private fun setupChangeIpButton() {
+        btnChangeIp.setOnClickListener {
+            showIpInputDialog()
+        }
+    }
+
+    private fun showIpInputDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Ubah Alamat Server Flask")
+
+        val input = EditText(this)
+        input.hint = "cth: http://192.168.1.105:5000"
+        input.setText(ServerConfig.BASE_URL)
+        input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+        builder.setView(input)
+
+        builder.setPositiveButton("Simpan") { dialog, which ->
+            val newUrl = input.text.toString().trim()
+            if (newUrl.startsWith("http://", ignoreCase = true)) {
+                ServerConfig.BASE_URL = newUrl
+                tvResult.text = "✅ IP Server Diperbarui ke:\n$newUrl"
+                schedulePeriodicMonitoring()
+            } else {
+                tvResult.text = "❌ Format URL tidak valid (harus diawali http://)"
+            }
+        }
+        builder.setNegativeButton("Batal") { dialog, which -> dialog.cancel() }
+
+        builder.show()
+    }
+    private fun isIgnoringBatteryOptimizations(): Boolean {
+        val pm = getSystemService(Context.POWER_SERVICE) as android.os.PowerManager
+        return pm.isIgnoringBatteryOptimizations(packageName)
+    }
+    private fun requestDisableBatteryOptimization() {
+        val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+        intent.data = Uri.parse("package:$packageName")
+        startActivity(intent)
+    }
+    private fun requestNotificationPermission() {
+        // Cek jika versi Android adalah TIRAMISU (API 33) atau lebih tinggi
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+
+            // Periksa apakah izin sudah diberikan
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // Minta izin notifikasi secara eksplisit
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    NOTIFICATION_PERMISSION_CODE
+                )
+            }
+        }
+    }
     private fun hasUsageAccess(): Boolean {
         // ... (Fungsi ini tetap sama)
         val appOps = getSystemService(Context.APP_OPS_SERVICE) as android.app.AppOpsManager
@@ -64,12 +128,9 @@ class MainActivity : AppCompatActivity() {
         )
         return mode == android.app.AppOpsManager.MODE_ALLOWED
     }
-
     private fun requestUsageAccess() {
         startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
     }
-
-    // Fungsi ini kini hanya untuk menampilkan data di UI, bukan untuk tugas berkala.
     private fun showUsageStats() {
         // Isi fungsi ini sama seperti sebelumnya, tetapi HAPUS panggilan sendDataToServer(..)
 
@@ -121,13 +182,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         tvResult.text = sb.toString()
-        // HAPUS: sendDataToServer(jsonArray, totalScreenTimeSeconds)
     }
-
-
-    // FUNGSI sendDataToServer() DIHAPUS DARI SINI
-
-    // FUNGSI BARU: Menjadwalkan WorkManager
     private fun schedulePeriodicMonitoring() {
         val workManager = WorkManager.getInstance(applicationContext)
         val tag = "UsageMonitorTag"
@@ -136,23 +191,23 @@ class MainActivity : AppCompatActivity() {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        // GANTI KE PERIODIC WORK REQUEST
+        // Interval: 15 Menit (900.000 ms)
+        // Flex: 5 Menit (WorkManager akan mencoba berjalan antara menit ke-10 hingga menit ke-15)
         val periodicWorkRequest = PeriodicWorkRequestBuilder<UsageDataWorker>(
-            15, TimeUnit.MINUTES, // Interval 15 menit
-            5, TimeUnit.MINUTES // Fleksibel di 5 menit terakhir
+            15, TimeUnit.MINUTES,    // Jeda Total
+            5, TimeUnit.MINUTES     // Jendela Fleksibel (Minimal 5 Menit)
         )
             .setConstraints(constraints)
             .addTag(tag)
             .build()
 
-        // Antrekan pekerjaan WorkManager
         workManager.enqueueUniquePeriodicWork(
             tag,
-            ExistingPeriodicWorkPolicy.REPLACE, // Ganti pekerjaan lama jika ada
+            ExistingPeriodicWorkPolicy.REPLACE,
             periodicWorkRequest
         )
 
-        // Log di UI untuk konfirmasi
-        tvResult.append("\n\n✅ MONITORING BERKALA (15 Menit) DIJADWALKAN ULANG.")
+        // Log di UI
+        tvResult.append("\n\n✅ MONITORING BERKALA (Interval 15 Menit) DIJADWALKAN ULANG.")
     }
 }
